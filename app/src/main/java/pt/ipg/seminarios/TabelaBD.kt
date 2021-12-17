@@ -2,6 +2,7 @@ package pt.ipg.seminarios
 
 import android.content.ContentValues
 import android.database.sqlite.SQLiteDatabase
+import android.provider.BaseColumns
 
 open class TabelaBD(db: SQLiteDatabase, nomeTabela: String) {
     protected val  db=db;
@@ -15,5 +16,9 @@ open class TabelaBD(db: SQLiteDatabase, nomeTabela: String) {
 
     fun query(columns: Array<String>, selection: String, selectionArgs: Array<String>, groupBy: String, having: String, orderBy: String ) {
         db.query(nomeTabela, columns, selection, selectionArgs, groupBy, having, orderBy)
+    }
+
+    companion object {
+        const val CAMPO_ID = BaseColumns._ID
     }
 }
