@@ -7,6 +7,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 import org.junit.Assert.*
+import org.junit.Before
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -20,6 +21,11 @@ class BDSeminariosTest {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
         assertEquals("pt.ipg.seminarios", appContext.packageName)
+    }
+
+    @Before
+    fun apagaBaseDados(){
+        getContext().deleteDatabase(BaseDadosSeminariosOpenHelper.NOME_BASE_DADOS)
     }
 
     private fun getContext() = InstrumentationRegistry.getInstrumentation().targetContext
