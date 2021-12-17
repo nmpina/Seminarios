@@ -8,7 +8,9 @@ class BaseDadosSeminariosOpenHelper(context: Context?) : SQLiteOpenHelper (conte
     NOME_BASE_DADOS, null, VERSAO_BASE_DADOS) {
 
     override fun onCreate(db: SQLiteDatabase?) {
-        TODO("Not yet implemented")
+        TabelaOradores(db!!).cria()
+        TabelaSeminarios(db!!).cria()
+
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
